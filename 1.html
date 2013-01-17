@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset=utf-8">
+		<title>pixnet</title>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script>
+			$.getJSON('http://emma.pixnet.cc/blog/articles/94930352?user=carl830', 
+			{}, 
+			function(data){
+				$('#title').html(data.article.title);
+				$('#content').html(data.article.body);
+				// alert(data.article.body);
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1 id="title"></h1>
+			<div id="content">
+			</div>
+		</div>
+	</body>
+	
+</html>

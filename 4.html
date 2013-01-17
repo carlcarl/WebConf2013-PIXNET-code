@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset=utf-8">
+		<title>pixnet</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div id="container" class="container">
+			<h1 id="title"></h1>
+			<div id="content">
+			</div>
+		</div>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			$.getJSON('http://emma.pixnet.cc/blog/articles/79017032?user=carl830', 
+			{}, 
+			function(data){
+				$('#title').html(data.article.title);
+				$('#content').html(data.article.body);
+				// alert(data.article.body);
+			});
+			
+		</script>
+	</body>
+	
+</html>

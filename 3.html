@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.mf"> 
+	<head> 
+		<meta charset=utf-8"> <title>pixnet</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1 id="title"></h1>
+			<div id="content">
+			</div>
+		</div>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script>
+			function init()
+			{
+				if(localStorage.getItem('article') == null){
+					$.getJSON('http://emma.pixnet.cc/blog/articles/79017032?user=carl830', 
+					{}, 
+					function(data){
+						localStorage.setItem('article', JSON.stringify(data));
+						$('#title').html(data.article.title);
+						$('#content').html(data.article.body);
+						// alert(data.article.body);
+					});
+				} else{
+					data = JSON.parse(localStorage.getItem('article'));
+					$('#title').html(data.article.title);
+					$('#content').html(data.article.body);
+				}
+
+			}
+			init();
+			
+		</script>
+	</body>
+	
+</html>
